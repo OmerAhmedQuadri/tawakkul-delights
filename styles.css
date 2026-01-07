@@ -345,9 +345,21 @@ body {
   font-size: 18px;
   font-weight: 700;
   color: var(--primary);
-  margin-bottom: 0;
+  margin: 0;
   white-space: nowrap;
   flex-shrink: 0;
+}
+
+.product-price-header {
+  display: block;
+}
+
+.product-footer {
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-top: auto;
 }
 
 .product-buttons {
@@ -987,17 +999,12 @@ body {
     font-size: 14px;
   }
 
-  .product-header {
-    flex-direction: row;
-    align-items: flex-start;
-  }
-
   .product-details {
-    flex: 1;
+    margin-bottom: 10px;
   }
 
   .product-name {
-    font-size: 15px;
+    font-size: 14px;
     margin-bottom: 4px;
   }
 
@@ -1005,20 +1012,37 @@ body {
     font-size: 11px;
   }
 
-  .product-price {
-    font-size: 16px;
-    margin-left: auto;
+  .product-header {
+    flex-direction: column;
+    margin-bottom: 10px;
   }
 
-  .product-buttons {
+  .product-price-header {
+    display: none;
+  }
+
+  .product-footer {
+    display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     gap: 8px;
+    margin-top: auto;
+  }
+
+  .product-price {
+    font-size: 15px;
+    margin: 0;
   }
 
   .product-btn {
     font-size: 12px;
-    padding: 8px;
-    flex: 1;
+    padding: 8px 12px;
+    flex: 0 0 auto;
+  }
+
+  .product-qty-controls {
+    flex: 0 0 auto;
   }
 
   .qty-btn-card {
@@ -1125,8 +1149,8 @@ body {
   }
 
   .product-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
   }
 
   .product-card {
@@ -1139,37 +1163,49 @@ body {
   }
 
   .product-header {
-    flex-direction: row;
-    align-items: flex-start;
+    flex-direction: column;
+    margin-bottom: 10px;
+  }
+
+  .product-price-header {
+    display: none;
   }
 
   .product-details {
-    flex: 1;
+    margin-bottom: 10px;
   }
 
   .product-name {
-    font-size: 14px;
-    margin-bottom: 4px;
+    font-size: 13px;
+    margin-bottom: 3px;
   }
 
   .product-unit {
-    font-size: 11px;
+    font-size: 10px;
+  }
+
+  .product-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    margin-top: auto;
   }
 
   .product-price {
-    font-size: 15px;
-    margin-left: auto;
-  }
-
-  .product-buttons {
-    flex-direction: row;
-    gap: 8px;
+    font-size: 14px;
+    margin: 0;
   }
 
   .product-btn {
-    font-size: 13px;
-    padding: 10px;
-    flex: 1;
+    font-size: 12px;
+    padding: 8px 10px;
+    flex: 0 0 auto;
+  }
+
+  .product-qty-controls {
+    flex: 0 0 auto;
   }
 
   .cart-sidebar {
