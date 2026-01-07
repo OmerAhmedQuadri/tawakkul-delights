@@ -104,6 +104,32 @@ body {
   border-color: var(--neutral-50);
 }
 
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.instagram-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  color: var(--neutral-50);
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.instagram-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-1px);
+}
+
 .cart-btn {
   padding: 10px 16px;
   background-color: var(--neutral-50);
@@ -719,6 +745,31 @@ body {
   color: var(--primary);
 }
 
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+}
+
+.footer-instagram {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--primary-light);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.footer-instagram:hover {
+  color: var(--primary);
+  transform: translateY(-1px);
+}
+
+.footer-instagram svg {
+  vertical-align: middle;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .header-content {
@@ -826,5 +877,23 @@ body {
 
   .modal-content {
     margin: 40% auto;
+  }
+
+  .header-actions {
+    gap: 8px;
+  }
+
+  .instagram-btn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .instagram-btn svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .footer-links {
+    gap: 6px;
   }
 }

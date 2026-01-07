@@ -132,7 +132,7 @@
       "id": "brownie_007",
       "name": "Classic Brownie Pcs of 4",
       "price": 300,
-      "unit": "classic 4pcs",
+      "unit": "Classic 4pcs",
       "description": "Classic brownie box of 4 piece [ customization available]",
       "image": "public/brownies/class-brownie-box-of-4-piece.jpg",
       "available": true
@@ -141,7 +141,7 @@
       "id": "brownie_008",
       "name": "Dry Fruit Brownie Pcs of 6",
       "price": 400,
-      "unit": "dry fruit 6 pcs",
+      "unit": "Dry fruit 6 pcs",
       "description": "Dry fruit brownie box of 6 piece [ customiation  available ]",
       "image": "public/brownies/dry-fruit-box-of-6-pcs.jpg",
       "available": true
@@ -172,7 +172,7 @@
       "id": "dum ke roat/ cookie_002",
       "name": "Choco Chip Cookie",
       "price": 500,
-      "unit": "minimum 10 pcs",
+      "unit": "Minimum 10 pcs",
       "description": "Chocochip cookie includes brown butter, refined flour, sugar and lots of chocolate chunks",
       "image": "public/dum-ke-roat/chocochip-cookie.jpg",
       "available": true
@@ -181,7 +181,7 @@
       "id": "dum ke roat/ cookie_003",
       "name": "Red Velvet Cookie",
       "price": 500,
-      "unit": "minimum 10 pcs",
+      "unit": "Minimum 10 pcs",
       "description": "Red valvet cookie made with red food color and little amount of cocoa powder, cream cheese,butter, refined flour. which gives the balance taste",
       "image": "public/dum-ke-roat/red-valvet.jpg",
       "available": true
@@ -190,7 +190,7 @@
       "id": "dum ke roat/ cookie_004",
       "name": "Lemon Crinkle Cookie",
       "price": 500,
-      "unit": "minimum 10 pcs",
+      "unit": "Minimum 10 pcs",
       "description": "Lemon crinckle cookie made with zest, lemon juice ,butter , flour and sugar which gives the perfect balance of sweet and sour",
       "image": "public/dum-ke-roat/lemon-crinkle-cookie.jpg",
       "available": true
