@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tawakkul Delights - Order Delicious Cakes Online</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="public/BrandLogo.jpg" alt="Tawakkul Delights" class="brand-logo">
+                    <h1>Tawakkul Delights</h1>
+                </div>
+                <nav class="nav">
+                    <button class="nav-btn active" data-category="all">All Products</button>
+                    <button class="nav-btn" data-category="cakes">Cakes</button>
+                    <button class="nav-btn" data-category="Brownies">Brownies</button>
+                    <button class="nav-btn" data-category="blondie">Blondies</button>
+                    <button class="nav-btn" data-category="dum ke roat/ cookies">Cookies</button>
+                    <button class="nav-btn" data-category="puri">Puris</button>
+                </nav>
+                <button class="cart-btn" id="cartBtn">
+                    🛒 Cart <span id="cartCount" class="cart-count">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Welcome to Tawakkul Delights</h1>
+                <p class="hero-subtitle">Indulge in our handcrafted cakes, brownies, and sweet treats made with love and premium ingredients</p>
+                <button class="hero-btn" id="heroExploreBtn">Explore Products</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <section class="products">
+                <h2 id="categoryTitle">All Products</h2>
+                <div id="productGrid" class="product-grid">
+                    <!-- Products will be loaded here by JavaScript -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Cart Sidebar -->
+    <div id="cartSidebar" class="cart-sidebar">
+        <div class="cart-header">
+            <h2>Your Cart</h2>
+            <button class="close-btn" id="closeCart">&times;</button>
+        </div>
+        <div id="cartItems" class="cart-items">
+            <!-- Cart items will be loaded here -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <strong>Total: ₹<span id="totalPrice">0</span></strong>
+            </div>
+            <button id="checkoutBtn" class="checkout-btn">Order on WhatsApp</button>
+        </div>
+    </div>
+
+    <!-- Cart Overlay -->
+    <div id="cartOverlay" class="cart-overlay"></div>
+
+    <!-- Product Modal -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <div class="modal-body">
+                <img id="modalImage" src="/placeholder.svg" alt="Product">
+                <div class="modal-details">
+                    <h2 id="modalName"></h2>
+                    <p id="modalDescription"></p>
+                    <p class="modal-unit">Unit: <span id="modalUnit"></span></p>
+                    <p class="modal-price">₹<span id="modalPrice"></span></p>
+                    <div class="quantity-selector">
+                        <button class="qty-btn" id="decreaseQty">-</button>
+                        <input type="number" id="modalQuantity" value="1" min="1">
+                        <button class="qty-btn" id="increaseQty">+</button>
+                    </div>
+                    <button id="addToCartBtn" class="add-cart-btn">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Tawakkul Delights. All rights reserved.</p>
+            <p>Order on WhatsApp: <a href="https://wa.me/918466853364" target="_blank">+91 8466853364</a></p>
+        </div>
+    </footer>
+
+    <script type="module" src="app.js"></script>
+</body>
+</html>
