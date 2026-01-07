@@ -95,6 +95,31 @@ function setupEventListeners() {
     if (qty > 1) modalQuantity.value = qty - 1
   })
 
+  // Mobile menu toggle
+  const mobileMenuToggle = document.getElementById("mobileMenuToggle")
+  const mainNav = document.getElementById("mainNav")
+  
+  if (mobileMenuToggle && mainNav) {
+    mobileMenuToggle.addEventListener("click", (e) => {
+      e.stopPropagation()
+      mainNav.classList.toggle("nav-open")
+      mobileMenuToggle.classList.toggle("active")
+    })
+    
+    // Close menu when clicking outside
+    document.addEventListener("click", (e) => {
+      if (window.innerWidth <= 768) {
+        if (mainNav && mobileMenuToggle && 
+            !mainNav.contains(e.target) && 
+            !mobileMenuToggle.contains(e.target) &&
+            mainNav.classList.contains("nav-open")) {
+          mainNav.classList.remove("nav-open")
+          mobileMenuToggle.classList.remove("active")
+        }
+      }
+    })
+  }
+
   navButtons.forEach((btn) => {
     btn.addEventListener("click", (e) => {
       navButtons.forEach((b) => b.classList.remove("active"))
@@ -102,6 +127,12 @@ function setupEventListeners() {
       const category = e.target.dataset.category
       currentCategory = category
       loadProducts(category)
+      
+      // Close mobile menu after selection
+      if (window.innerWidth <= 768 && mainNav && mobileMenuToggle) {
+        mainNav.classList.remove("nav-open")
+        mobileMenuToggle.classList.remove("active")
+      }
     })
   })
 }
@@ -173,9 +204,13 @@ function createProductCard(product) {
   card.innerHTML = `
         <img src="${product.image}" alt="${product.name}" class="product-image">
         <div class="product-info">
-            <h3 class="product-name">${product.name}</h3>
-            <p class="product-unit">${product.unit}</p>
-            <p class="product-price">₹${product.price}</p>
+            <div class="product-header">
+                <div class="product-details">
+                    <h3 class="product-name">${product.name}</h3>
+                    <p class="product-unit">${product.unit}</p>
+                </div>
+                <p class="product-price">₹${product.price}</p>
+            </div>
             ${buttonsHTML}
         </div>
     `
