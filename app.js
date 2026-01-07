@@ -365,7 +365,7 @@ function checkout() {
   const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0)
   message += `\nTotal: ₹${total}`
 
-  const whatsappNumber = "918466000000"
+  const whatsappNumber = "917671942511"
   const encodedMessage = encodeURIComponent(message)
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`
 
