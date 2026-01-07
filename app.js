@@ -181,10 +181,21 @@ function createProductCard(product) {
   const quantity = isInCart ? cartItem.quantity : 0
   
   let buttonsHTML = ""
+  let footerHTML = ""
   if (isInCart) {
     buttonsHTML = `
+      <div class="product-buttons">
+        <button class="product-btn product-btn-view">View</button>
+        <div class="product-qty-controls">
+          <button class="qty-btn-card" data-action="decrease" data-product-id="${product.id}">−</button>
+          <span class="qty-display">${quantity}</span>
+          <button class="qty-btn-card" data-action="increase" data-product-id="${product.id}">+</button>
+        </div>
+      </div>
+    `
+    footerHTML = `
       <div class="product-footer">
-        <p class="product-price">₹${product.price}</p>
+        <p class="product-price-footer">₹${product.price}</p>
         <div class="product-qty-controls">
           <button class="qty-btn-card" data-action="decrease" data-product-id="${product.id}">−</button>
           <span class="qty-display">${quantity}</span>
@@ -194,9 +205,15 @@ function createProductCard(product) {
     `
   } else {
     buttonsHTML = `
-      <div class="product-footer">
-        <p class="product-price">₹${product.price}</p>
+      <div class="product-buttons">
+        <button class="product-btn product-btn-view">View</button>
         <button class="product-btn product-btn-add" data-product-id="${product.id}">Add to Cart</button>
+      </div>
+    `
+    footerHTML = `
+      <div class="product-footer">
+        <p class="product-price-footer">₹${product.price}</p>
+        <button class="product-btn product-btn-add-footer" data-product-id="${product.id}">Add to Cart</button>
       </div>
     `
   }
@@ -209,27 +226,37 @@ function createProductCard(product) {
                     <h3 class="product-name">${product.name}</h3>
                     <p class="product-unit">${product.unit}</p>
                 </div>
-                <p class="product-price product-price-header">₹${product.price}</p>
+                <p class="product-price">₹${product.price}</p>
             </div>
             ${buttonsHTML}
+            ${footerHTML}
         </div>
     `
   
-  // Make entire card clickable for view (except buttons)
+  // Make card clickable for view on mobile
   card.addEventListener("click", (e) => {
-    // Don't open modal if clicking on buttons or quantity controls
-    if (!e.target.closest(".product-btn") && !e.target.closest(".product-qty-controls") && !e.target.closest(".qty-btn-card")) {
-      openModal(product)
+    // Don't trigger if clicking on buttons, quantity controls, or footer
+    if (!e.target.closest(".product-btn") && !e.target.closest(".product-qty-controls") && !e.target.closest(".product-footer")) {
+      if (window.innerWidth <= 768) {
+        openModal(product)
+        e.stopPropagation()
+      }
     }
   })
+  
+  // View button (desktop)
+  const viewBtn = card.querySelector(".product-btn-view")
+  if (viewBtn) {
+    viewBtn.addEventListener("click", (e) => {
+      e.stopPropagation()
+      openModal(product)
+    })
+  }
   
   // Add to cart button
   const addBtn = card.querySelector(".product-btn-add")
   if (addBtn) {
-    addBtn.addEventListener("click", (e) => {
-      e.stopPropagation()
-      addToCartDirect(product)
-    })
+    addBtn.addEventListener("click", () => addToCartDirect(product))
   }
   
   // Quantity control buttons
@@ -237,16 +264,10 @@ function createProductCard(product) {
   const increaseBtn = card.querySelector('[data-action="increase"]')
   
   if (decreaseBtn) {
-    decreaseBtn.addEventListener("click", (e) => {
-      e.stopPropagation()
-      adjustCartQuantity(product.id, -1)
-    })
+    decreaseBtn.addEventListener("click", () => adjustCartQuantity(product.id, -1))
   }
   if (increaseBtn) {
-    increaseBtn.addEventListener("click", (e) => {
-      e.stopPropagation()
-      adjustCartQuantity(product.id, 1)
-    })
+    increaseBtn.addEventListener("click", () => adjustCartQuantity(product.id, 1))
   }
   
   return card
