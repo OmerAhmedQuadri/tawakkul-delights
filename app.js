@@ -235,12 +235,13 @@ function createProductCard(product) {
   
   // Make card clickable for view on mobile
   card.addEventListener("click", (e) => {
-    // Don't trigger if clicking on buttons, quantity controls, or footer
-    if (!e.target.closest(".product-btn") && !e.target.closest(".product-qty-controls") && !e.target.closest(".product-footer")) {
-      if (window.innerWidth <= 768) {
-        openModal(product)
-        e.stopPropagation()
-      }
+    // Don't trigger if clicking on buttons, quantity controls, or any element in footer
+    const clickedButton = e.target.closest("button")
+    const clickedFooter = e.target.closest(".product-footer")
+    
+    if (!clickedButton && !clickedFooter && window.innerWidth <= 768) {
+      openModal(product)
+      e.stopPropagation()
     }
   })
   
@@ -253,22 +254,41 @@ function createProductCard(product) {
     })
   }
   
-  // Add to cart button
+  // Add to cart button (desktop)
   const addBtn = card.querySelector(".product-btn-add")
   if (addBtn) {
-    addBtn.addEventListener("click", () => addToCartDirect(product))
+    addBtn.addEventListener("click", (e) => {
+      e.stopPropagation()
+      addToCartDirect(product)
+    })
   }
   
-  // Quantity control buttons
-  const decreaseBtn = card.querySelector('[data-action="decrease"]')
-  const increaseBtn = card.querySelector('[data-action="increase"]')
+  // Add to cart button (mobile footer)
+  const addBtnFooter = card.querySelector(".product-btn-add-footer")
+  if (addBtnFooter) {
+    addBtnFooter.addEventListener("click", (e) => {
+      e.stopPropagation()
+      addToCartDirect(product)
+    })
+  }
   
-  if (decreaseBtn) {
-    decreaseBtn.addEventListener("click", () => adjustCartQuantity(product.id, -1))
-  }
-  if (increaseBtn) {
-    increaseBtn.addEventListener("click", () => adjustCartQuantity(product.id, 1))
-  }
+  // Quantity control buttons (desktop and mobile)
+  const decreaseBtn = card.querySelectorAll('[data-action="decrease"]')
+  const increaseBtn = card.querySelectorAll('[data-action="increase"]')
+  
+  decreaseBtn.forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation()
+      adjustCartQuantity(product.id, -1)
+    })
+  })
+  
+  increaseBtn.forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation()
+      adjustCartQuantity(product.id, 1)
+    })
+  })
   
   return card
 }
