@@ -55,6 +55,15 @@ body {
   gap: 12px;
 }
 
+.logo-text {
+  font-family: 'Bagel Fat One', cursive;
+  font-size: 34px;
+  color: var(--neutral-50);
+  white-space: nowrap;
+  margin: 0;
+  letter-spacing: 3px;
+}
+
 .brand-logo {
   height: 50px;
   width: 50px;
@@ -63,12 +72,7 @@ body {
   border: 2px solid var(--neutral-50);
 }
 
-.logo h1 {
-  font-size: 24px;
-  color: var(--neutral-50);
-  white-space: nowrap;
-  margin: 0;
-}
+
 
 /* Mobile Menu Toggle */
 .mobile-menu-toggle {
@@ -202,7 +206,8 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  padding: 80px 0;
+  padding: 150px 0;
+  min-height: 500px;
   text-align: center;
   color: var(--neutral-50);
   position: relative;
@@ -215,7 +220,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(212, 85, 114, 0.75) 0%, rgba(90, 26, 39, 0.65) 100%);
+  background: linear-gradient(135deg, rgba(212, 85, 115, 0.26) 0%, rgba(90, 26, 39, 0.384) 100%);
   z-index: 1;
 }
 
@@ -797,7 +802,7 @@ body {
 
 /* Footer */
 .footer {
-  background-color: var(--neutral-900);
+  background-color: var(--primary);
   color: white;
   padding: 32px 0;
   margin-top: 60px;
@@ -869,6 +874,10 @@ body {
     flex-shrink: 0;
   }
 
+  .logo-text {
+    font-size: 40px;
+  }
+
   .mobile-menu-toggle {
     display: flex;
     order: 2;
@@ -937,7 +946,8 @@ body {
   }
 
   .hero {
-    padding: 60px 0;
+    padding: 100px 0;
+    min-height: 400px;
   }
 
   .hero-title {
@@ -994,6 +1004,10 @@ body {
 
   .brand-logo {
     height: 40px;
+  }
+
+  .logo-text {
+    font-size: 40px;
   }
 
   .nav-btn {
@@ -1081,6 +1095,10 @@ body {
     width: 35px;
   }
 
+  .logo-text {
+    font-size: 35px;
+  }
+
   .mobile-menu-toggle {
     width: 28px;
     height: 28px;
@@ -1122,7 +1140,8 @@ body {
   }
 
   .hero {
-    padding: 40px 0;
+    padding: 70px 0;
+    min-height: 350px;
   }
 
   .hero-title {

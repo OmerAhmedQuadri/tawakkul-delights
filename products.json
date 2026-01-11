@@ -124,8 +124,8 @@
       "name": "Custom Pomo-Brownie",
       "price": 400,
       "unit": "200-300 gram",
-      "description": "Mini brownie cake with custom pomogranate topping on chocolate ,made with high quality ingredients",
-      "image": "public/brownies/custom-pomo-brownie.webp",
+      "description": "Mini brownie cake with custom pomogranate topping on chocolate, made with high quality ingredients",
+      "image": "public/brownies/custom-pomo-brownie.jpg",
       "available": true
     },
     {
